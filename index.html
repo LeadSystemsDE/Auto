@@ -34,6 +34,9 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
+    .step-num { transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.45s ease; }
+    .step-num.step-active { transform: scale(1.35); box-shadow: 0 0 40px rgba(217,119,6,0.9) !important; }
+    #steps-progress { transition: width 0.75s cubic-bezier(0.4, 0, 0.2, 1); }
 
     @keyframes glowPulse {
       0%, 100% { box-shadow: 0 0 30px rgba(217,119,6,0.35); }
@@ -359,15 +362,17 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="py-20 lg:py-28 relative bg-dark-800/40">
+<section id="how-it-works" class="py-20 lg:py-28 relative bg-dark-800/40">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-3xl sm:text-4xl font-bold text-dark-100 mb-4 reveal">So läuft die <span class="gradient-text">Zusammenarbeit</span></h2>
     </div>
     <div class="grid md:grid-cols-3 gap-8 relative">
-      <div class="hidden md:block absolute top-16 left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-brand-500 via-brand-400/50 to-dark-600"></div>
+      <div class="hidden md:block absolute top-16 left-[20%] right-[20%] h-0.5 bg-dark-600/60" id="steps-track">
+        <div id="steps-progress" style="width:0%;height:100%;background:linear-gradient(to right,#f59e0b,#d97706);"></div>
+      </div>
       <div class="text-center relative reveal reveal-delay-1">
-        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 text-white flex items-center justify-center text-xl font-bold mx-auto mb-6 relative z-10 shadow-[0_0_20px_rgba(217,119,6,0.4)]">1</div>
+        <div id="step-num-1" class="step-num w-14 h-14 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 text-white flex items-center justify-center text-xl font-bold mx-auto mb-6 relative z-10 shadow-[0_0_20px_rgba(217,119,6,0.4)]">1</div>
         <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mx-auto mb-4">
           <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
         </div>
@@ -375,7 +380,7 @@
         <p class="text-dark-300 text-sm">30 Minuten. Kein Verkaufsdruck. Wir schauen gemeinsam, wo dir gerade Leads und Zeit verloren gehen — und ob ein System das ändern kann.</p>
       </div>
       <div class="text-center relative reveal reveal-delay-2">
-        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 text-white flex items-center justify-center text-xl font-bold mx-auto mb-6 relative z-10 shadow-[0_0_20px_rgba(217,119,6,0.4)]">2</div>
+        <div id="step-num-2" class="step-num w-14 h-14 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 text-white flex items-center justify-center text-xl font-bold mx-auto mb-6 relative z-10 shadow-[0_0_20px_rgba(217,119,6,0.4)]">2</div>
         <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mx-auto mb-4">
           <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
@@ -383,7 +388,7 @@
         <p class="text-dark-300 text-sm">Du beantwortest 3 Fragen zu deinem Angebot. Den Rest übernehme ich — konfiguriert auf deine Qualifizierungskriterien, getestet, einsatzbereit. Du musst keinen Finger rühren.</p>
       </div>
       <div class="text-center relative reveal reveal-delay-3">
-        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 text-white flex items-center justify-center text-xl font-bold mx-auto mb-6 relative z-10 shadow-[0_0_20px_rgba(217,119,6,0.4)]">3</div>
+        <div id="step-num-3" class="step-num w-14 h-14 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 text-white flex items-center justify-center text-xl font-bold mx-auto mb-6 relative z-10 shadow-[0_0_20px_rgba(217,119,6,0.4)]">3</div>
         <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mx-auto mb-4">
           <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
         </div>
@@ -720,6 +725,25 @@
   }
   s.forEach(el => el.addEventListener('input', calc));
   calc();
+
+  // Steps animation: 1 grows → bar to 2 → 2 grows → bar to 3 → 3 grows
+  const stepsProgress = document.getElementById('steps-progress');
+  const stepNums = [document.getElementById('step-num-1'), document.getElementById('step-num-2'), document.getElementById('step-num-3')];
+  let stepsAnimated = false;
+  function runStepsAnimation() {
+    if (stepsAnimated) return;
+    stepsAnimated = true;
+    stepNums[0].classList.add('step-active');
+    setTimeout(() => { stepsProgress.style.width = '50%'; }, 600);
+    setTimeout(() => { stepNums[1].classList.add('step-active'); }, 1450);
+    setTimeout(() => { stepsProgress.style.width = '100%'; }, 2050);
+    setTimeout(() => { stepNums[2].classList.add('step-active'); }, 2900);
+  }
+  const stepsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { runStepsAnimation(); stepsObs.unobserve(e.target); } });
+  }, { threshold: 0.4 });
+  const howItWorks = document.getElementById('how-it-works');
+  if (howItWorks) stepsObs.observe(howItWorks);
 })();
 </script>
 </body>
